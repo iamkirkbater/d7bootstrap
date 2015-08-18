@@ -1,0 +1,45 @@
+// Drupal Overrides
+ul.tabs.primary {
+  border-bottom: 0;
+  border-top: 1px solid #bbb;
+  text-align:right;
+  margin: 0;
+  li.active a {
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #fff;
+  }
+  li a {
+    border-style: none solid solid solid;
+  }
+}
+
+.edit-node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  display: none;
+  z-index: 99;
+  a {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjE2Ny42MzggMTYuOTg0IDE2IDE2IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDE2Ny42MzggMTYuOTg0IDE2IDE2IiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjRjM2RjAxIiBkPSJNMTgxLjkyNiwyNy45MzNsLTMuMjUzLDMuMjcxbC04LjIzOS04LjI3OWwzLjI1NS0zLjI3MUwxODEuOTI2LDI3LjkzM3ogTTE2Ny45NjUsMjAuNDQ1bDEuNjIyLDEuNjNsMy4yNTUtMy4yNzFsLTEuMzktMS4zOTdjLTAuNTYzLTAuNTY0LTEuNDc0LTAuNTY0LTIuMDM1LDBsLTEuNDUxLDEuNDU5QzE2Ny41MywxOS4zMDIsMTY3LjUzLDIwLjAwNywxNjcuOTY1LDIwLjQ0NXogTTE4Mi44MDcsMjguODE5bC0zLjI1MywzLjI3MWwzLjYyNywwLjg4NGMwLjI2NywwLjA2NSwwLjUwNy0wLjE3NSwwLjQ0OC0wLjQ0M0wxODIuODA3LDI4LjgxOXoiLz48L3N2Zz4=');
+    display: block;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+}
+
+.row-container:hover .edit-node {
+  display: block;
+}
+
+.form-item, .form-actions {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  height: auto !important;
+}

@@ -1,0 +1,9 @@
+name = Kirk Test
+description = Test Theme for Gulp, CommonJS Modules, and SCSS integration.
+version = version
+core = 7.x
+
+stylesheets[all][] = assets/css/app.css
+
+regions[search] = Search Bar
+regions[content] = Content

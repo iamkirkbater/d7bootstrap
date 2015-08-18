@@ -1,0 +1,62 @@
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@function lower-bound($range) {
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range, 1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+@mixin mq($size) {
+  @media #{$size} { @content }
+}
+
+@mixin collapse-right() {
+  padding-right: 0;
+}
+
+@mixin collapse-left() {
+  padding-left: 0;
+}
+
+@mixin collapse() {
+  @include collapse-left();
+  @include collapse-right();
+}
+
+@mixin zero() {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin button($rest-color, $hover-color: $rest-color) {
+  background-color: $rest-color;
+  border-radius: 0;
+  color: #fff;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1;
+  padding: .75em 1em;
+  text-decoration: none;
+  @include font-smoothing(on);
+  @include transition(background-color 200ms ease);
+  &:hover {
+    background-color: $hover-color;
+  }
+}
