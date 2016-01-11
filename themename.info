@@ -1,9 +1,35 @@
 name = Kirk Test
-description = Test Theme for Gulp, CommonJS Modules, and SCSS integration.
+description = RIT Production Services' Drupal 7 Base Theme
 version = version
 core = 7.x
 
 stylesheets[all][] = assets/css/app.css
 
-regions[search] = Search Bar
+scripts[] = assets/js/main.js
+
+### --- DEFAULT REGIONS --- ###
+
+regions[idbar_search] = Id Bar Search
+regions[idbar_menu] = Id Bar (Mobile) Menu
+
+regions[sidebar_left] = Sidebar Left
 regions[content] = Content
+#regions[sidebar_right] = Sidebar Right
+
+#regions[header_quick_links] = Header Quick Links
+regions[main_menu] = Main Menu
+
+#regions[slideshow] = Homepage Slideshow
+#regions[tri_links] = Homepage Quick Links
+
+#regions[footer_contact_info] = Footer Contact Info
+#regions[footer_quick_links] = Footer Quick Links
+regions[footer_contact_form] = Footer Contact Form
+
+###  --- END DEFAULT REGIONS --- ###
+
+### --- Define Custom Regions Below --- ###
+
+
+
+### --- END Custom Regions --- ###
