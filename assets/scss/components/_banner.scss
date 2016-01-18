@@ -1,0 +1,42 @@
+#banner {
+  margin-bottom: em(50);
+
+  .container {
+    @include max(1200px) {
+      @include collapse();
+    }
+    text-align: center;
+  }
+
+  .banner {
+    width: 100%;
+    max-height: 450px;
+    position: relative;
+
+    .slides {
+      li {
+        z-index: 1;
+      }
+    }
+
+    &.banner--slideshow {
+      overflow: hidden;
+    }
+  }
+
+  .banner--single {
+    img {
+      display: inline;
+    }
+  }
+
+  @media(max-height: 800px) {
+    max-height: 400px;
+    overflow: hidden;
+  }
+
+  @media(max-height: 650px) {
+    max-height: 200px;
+    overflow: hidden;
+  }
+}

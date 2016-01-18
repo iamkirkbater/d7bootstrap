@@ -1,0 +1,95 @@
+#footer {
+  background: #282828;
+  @include pad($base-spacing*2 0);
+  color: $medium-gray;
+
+  @include max(511px) {
+    text-align: center;
+    @include ptb($base-spacing);
+  }
+
+  a {
+    color: $medium-gray;
+    text-decoration: underline;
+  }
+
+  .footer-left, .footer-right {
+    @include media($medium-up) {
+      @include span-columns(6);
+    }
+    @include media($large-up) {
+      @include span-columns(4);
+    }
+  }
+
+  .footer-left {
+    svg {
+      max-width: 100%;
+      max-height: 72px;
+      height: auto;
+    }
+
+    .twc-logo {
+      @include max(511px) {
+        padding-bottom: $base-spacing;
+        border-bottom: 1px solid $medium-gray;
+      }
+    }
+
+    #twc-logo--footer {
+      fill: $light-gray;
+    }
+
+    .rit-logo {
+      @include max(511px) {
+        padding-top: 20px;
+      }
+    }
+
+    #rit-logo--footer {
+      fill: $medium-gray;
+      height: 3em;
+      padding-top: 11px;
+      margin-top: $base-spacing*2;
+
+      @include max(511px) {
+        @include zero();
+        width: 93px;
+      }
+    }
+
+    p.copyright {
+      font-size: em(11);
+
+      @include max(511px) {
+        padding-bottom: 25px;
+        border-bottom: 1px solid $medium-gray;
+      }
+    }
+  }
+
+  .footer-middle {
+    display: none;
+    @include media($large-up) {
+      @include span-columns(4);
+    }
+  }
+
+  .footer-right {
+    line-height: 25px;
+    font-size: 14px;
+
+    h4 {
+      font-family: $montserrat;
+      font-size: 14px;
+      line-height: 25px;
+      color: $light-gray;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+  }
+
+  .contact-info--footer {
+//    @include ptb(25px);
+  }
+}

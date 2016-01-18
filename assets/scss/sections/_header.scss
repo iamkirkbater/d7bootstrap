@@ -1,0 +1,98 @@
+#header {
+  background: #fff;
+  @include position(relative);
+  height: 140px;
+  @include min($mobile-break + 1) {
+    height: 132px;
+  }
+
+  .fixed {
+    background: #fff;
+    @include position(absolute, 0 0 0 0);
+    @include max($mobile-break) {
+      padding-top: 50px;
+    }
+  }
+
+  .header-left {
+    padding-top: 31px;
+    padding-bottom: 21px;
+    @include transition(padding 500ms ease);
+    @include media($large-up) {
+      @include span-columns(4);
+    }
+    @include max(979px) {
+      text-align: center;
+      width: 100%;
+    }
+    @include max($mobile-break) {
+      padding-top: 15px;
+      padding-bottom: 5px;
+    }
+
+    #twc-logo--header {
+      height: 72px;
+      fill: $rit-orange;
+      @include max($mobile-break) {
+        height: 62px;
+      }
+    }
+  }
+
+  .header-right {
+    @include span-columns(8);
+    display: none;
+
+    @include media($large-up) {
+      display: block;
+    }
+    @include max($mobile-break) {
+      display: none;
+    }
+  }
+}
+
+@include min(($mobile-break + 1)) {
+  body.fixed-header {
+    #identity-bar {
+//      margin-bottom: 132px;
+    }
+
+    #header .fixed {
+      @include position(fixed, 0 0 initial 0);
+      z-index: 999;
+      box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+    }
+
+    &.adminimal-menu #header .fixed {
+      top: 29px;
+    }
+  }
+
+  body.shrunk-header {
+    #header {
+      .header-left {
+        padding-top: 14px;
+        padding-bottom: 6px;
+      }
+
+      #quick-links--header ul {
+        margin-top: 11px;
+      }
+
+      #main-menu--header {
+        .menu-name-main-menu > ul > li {
+          padding-bottom: 21px;
+
+          & > a {
+            padding-bottom: 26px;
+          }
+
+          ul {
+            top: 46px;
+          }
+        }
+      }
+    }
+  }
+}

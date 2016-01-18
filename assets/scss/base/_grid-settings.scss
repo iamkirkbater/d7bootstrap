@@ -4,9 +4,20 @@
 // $column: 90px;
 // $gutter: 30px;
 // $grid-columns: 12;
-// $max-width: em(1088);
+
+$max-width: em(1088);
+
+
+// Don't change anything below this line.
+
+// --------------------------------------
+
+// This line sets the max width defined above and adds the gutter, to make up for the width of the padding on the side
+// of the "grid-row" container, which adds padding for mobile by default, without having to ever think about it.
+$max-width: $max-width + $gutter;
 
 // Neat Breakpoints
+// Don't use these, style each component individually to the width of the screen.
 $medium-screen: em(640);
 $large-screen: em(860);
 

@@ -1,0 +1,314 @@
+@charset "UTF-8";
+
+// ======================= Variables === */
+
+$idbar-foreground-color: #fff;
+$idbar-background-color: #f36e21;
+
+$idbar-rit-logo-color: $idbar-foreground-color;
+$idbar-menu-button-icon-color: $idbar-foreground-color;
+$idbar-search-button-icon-color: $idbar-foreground-color;
+$idbar-search-icon-color: $medium-gray;
+
+$mobile-break: 979px;
+
+// ======================= RIT Logo Styles === */
+
+#identity-bar {
+  background: $idbar-background-color;
+  height:52px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  @include max($mobile-break) {
+    z-index: 1000;
+  }
+
+  // Fixed Positioning fixes
+  @include min(($mobile-break + 1)) {
+    position: relative;
+  }
+  body.adminimal-menu & {
+    top: 45px;
+    @include min(($mobile-break + 1)) {
+      top: initial;
+      left: initial;
+      right: initial;
+    }
+  }
+
+  #MobileCheck {
+    display: none !important;
+    content: "mobile";
+
+    @include min(($mobile-break + 1)) {
+      content: "desktop";
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  svg {
+    max-height: 100%;
+    fill: none;
+    stroke: none;
+  }
+
+  .center {
+    @include grid-row();
+    overflow:hidden;
+  }
+  .rit-logo {
+    float:left;
+    width:370px;
+
+    svg {
+      max-height: 51px;
+      fill: $idbar-rit-logo-color;
+      stroke: none;
+    }
+
+    @media screen and (max-width:#{$mobile-break}) {
+      width:93px;
+      overflow:hidden;
+      margin:auto;
+      position:absolute;
+      left:0;
+      right:0;
+    }
+  }
+
+  #rit-logo-rit {
+    width: 93px;
+  }
+  #rit-logo-text {
+    width: 270px;
+    @media screen and (max-width:#{$mobile-break}) {
+      display: none;
+    }
+  }
+
+  // ======================= Search Styles === */
+  .search-container{
+    float:right; 
+    width:160px;
+  }
+  
+  .search-form{
+    margin:11px 0 0 0;
+    position:relative; 
+    width:160px;
+    background:none; 
+    padding:0;
+  }
+  
+  .form-item {
+    margin: 0;
+    
+    input {
+      border-radius: 12px;
+      -moz-border-radius: 12px;
+      -webkit-border-radius: 12px;
+      padding: 7px 25px 3px 10px;
+      border: none;
+      box-shadow: none;
+      width: 100%;
+      font: 11px/16px 'Helvetica', sans-serif;
+      max-width: none;
+      color: $medium-gray;
+
+      &::-webkit-input-placeholder {
+        color: #787878;
+      }
+
+      &:-moz-placeholder { /* Firefox 18- */
+        color: #787878;
+      }
+
+      &::-moz-placeholder {  /* Firefox 19+ */
+        color: #787878;
+      }
+
+      &:-ms-input-placeholder {
+        color: #787878;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  #idbar-search-close-button {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -5%;
+    margin: auto 0;
+    display: block;
+    cursor: pointer;
+    z-index: 9999;
+
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    -o-transition: all 200ms ease-out;
+    -ms-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  .form-actions {
+    margin: 0;
+    display: inline;
+
+    input {
+//      display: none;
+      position: absolute;
+      top: 0;
+      right: 10px;
+      bottom: 0;
+      margin: auto 0;
+    }
+
+//    svg {
+//      position: absolute;
+//      top: 5px;
+//      right: 8px;
+//      fill: $idbar-background-color;
+//      stroke: $idbar-background-color;
+//      cursor: pointer;
+//    }
+  }
+
+  // ======================= Mobile Search Styles === */
+  #idbar-search-button {
+    display:none;
+    width: 48px;
+    height: 33px;
+    position: absolute;
+    right: 5px;
+    top: 11px;
+    padding-left: 5px;
+    cursor:pointer; 
+    z-index:20; 
+    background-size:30px;
+    -webkit-transition:all 200ms ease-out;
+    -moz-transition:all 200ms ease-out;
+    -ms-transition:all 200ms ease-out;
+    -o-transition:all 200ms ease-out;
+    transition:all 200ms ease-out;
+    box-sizing: border-box;
+
+    svg {
+      max-width: 100%;
+      fill: $idbar-search-button-icon-color;
+      stroke: $idbar-search-button-icon-color;
+      height: 30px;
+    }
+  }
+  
+  #idbar-menu-button{
+    width:31px;
+    height:29px;
+    position:absolute;
+    left:12px;
+    top:14px;
+    z-index:20;
+    display:none;
+    cursor:pointer;
+
+    svg {
+      max-width: 100%;
+      height: 24px;
+      fill: $idbar-menu-button-icon-color;
+    }
+  }
+
+//  #edit-actions {
+//    input {
+//      display: none;
+//    }
+//    svg {
+//      position: absolute;
+//      top: 0;
+//      bottom: 0;
+//      right: 5%;
+//      margin: auto;
+//      fill: $idbar-search-icon-color;
+//      stroke: $idbar-search-icon-color;
+//      cursor: pointer;
+//
+//    }
+//  }
+}
+
+@media screen and (max-width:#{$mobile-break}) {
+  #identity-bar {
+    #idbar-search-button {
+      display: block
+    }
+    #idbar-menu-button {
+      display: block
+    }
+    .center {
+      padding: 0
+    }
+
+    .rit-logo a {
+      display: block
+    }
+    .rit-logo img {
+      width: auto;
+      margin-top: 14px;
+      height: 27px;
+      overflow: hidden
+    }
+
+    .search-container {
+      float: none;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      right: -100%;
+      -webkit-transition: all 200ms ease-out;
+      -moz-transition: all 200ms ease-out;
+      -ms-transition: all 200ms ease-out;
+      -o-transition: all 200ms ease-out;
+      transition: all 200ms ease-out
+    }
+    .search-form {
+      width: auto;
+      margin: 0
+    }
+    .form-item input {
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      height: 52px;
+      font-size: 18px
+    }
+    .form-actions input {
+      display: none
+    }
+  }
+}
+
+#idbar-search-close-button {
+  #icon-idbar-close-button-circle {
+    fill: #dedede;
+  }
+  #icon-idbar-close-button-x {
+    fill: #6b6b6b;
+    stroke: #6b6b6b;
+  }
+}

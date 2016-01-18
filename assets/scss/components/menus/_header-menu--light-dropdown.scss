@@ -1,0 +1,101 @@
+#main-menu--header {
+  ul {
+    padding-top: 0.9em;
+    text-align: right;
+    z-index: 1;
+  }
+  li {
+    display: inline-block;
+    position: relative;
+    @include zero;
+    padding: 0 1em 48px;
+    @include transition(padding 500ms ease);
+
+    @include max(1079px) {
+      @include plr(.75em);
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+
+    a {
+      font-family: $helvetica;
+      font-size: 16px;
+      color: $black;
+      padding-bottom: 48px;
+      @include transition(padding 500ms ease);
+
+      span {
+        padding-top: 0.2em;
+        @include transition(border-bottom-color 200ms ease);
+        border-bottom: 2px solid transparent;
+      }
+    }
+
+    &.active-trail a span, &:hover a span {
+      border-bottom-color: $rit-orange;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 73px;
+      background: $off-white;
+      width: 348px;
+      padding-top: 0;
+
+      li {
+        display: block;
+        padding: 0;
+        text-align: left;
+
+        a {
+          font-size: 14px;
+          padding: 1.1em 2.5em 0;
+          position: relative;
+          display: block;
+          color: $medium-gray;
+
+          &:after {
+            content: "";
+            @include triangle(12px, #dfdfde, down-right);
+            @include position(absolute, 0 0 0 initial);
+            margin: auto 2.5em;
+          }
+
+          span {
+            display: block;
+            padding-bottom: 1.1em;
+            border-bottom-width: 1px;
+            border-bottom-color: #dfdfde !important;
+          }
+        }
+        &:hover {
+          background: #dfdfde;
+          color: $medium-gray;
+          a:after {
+            border-bottom-color: $medium-gray;
+            border-right-color: $medium-gray;
+          }
+        }
+
+        &.active-trail a {
+          color: $rit-orange;
+          &:after {
+            border-bottom-color: $rit-orange;
+            border-right-color: $rit-orange;
+          }
+        }
+
+        &:last-of-type a span {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    &:hover ul {
+      display: block;
+    }
+  }
+}

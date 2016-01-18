@@ -1,0 +1,44 @@
+html {
+  background: $footer-background-color;
+}
+
+body {
+  background: $base-background-color;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+.container {
+  @include grid-row();
+}
+
+// Font-color styles
+.color--orange {
+  color: $rit-orange;
+}
+
+.color--white {
+  color: #fff;
+}
+
+.color--black {
+  color: #000;
+}
+
+.color--dark-gray {
+  color: $dark-gray;
+}
+
+.color--medium-gray {
+  color: $medium-gray;
+}
+
+.color--light-gray {
+  color: $light-gray;
+}
+
+#preload {
+  display: none !important;
+}

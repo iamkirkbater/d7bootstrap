@@ -1,0 +1,21 @@
+.backtotop {
+  padding: 7px;
+  width: 44px;
+  height: 44px;
+  display: block;
+  position: fixed;
+  z-index: 103;
+  right: -50px;
+  bottom: 20%;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  background-color: #F16F00;
+  background-image: url("../img/back-to-top.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.backtotop.shown {
+  right: 14px;
+}

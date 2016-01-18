@@ -1,0 +1,133 @@
+@mixin quick-links-icon($icon, $modifier: none) {
+  @if $modifier != none {
+    $modifier: --#{$modifier};
+  } @else {
+    $modifier: "";
+  }
+  background-image: url(../img/#{$icon}-icon#{$modifier}.png);
+}
+
+#quick-links--header {
+  @include clearfix;
+  font-size: em(14);
+  text-transform: uppercase;
+  ul {
+    float: right;
+    margin-top: 16px;
+    @include transition(margin-top 250ms ease);
+  }
+
+  li {
+    display: inline-block;
+
+    &.quick-links-about a {
+      @include quick-links-icon(about);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(about, hover);
+      }
+    }
+    &.quick-links-mail a {
+      display: none;
+    }
+    &.quick-links-staff-directory a {
+      @include quick-links-icon(staff);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(staff, hover);
+      }
+    }
+    &.quick-links-maps a {
+      @include quick-links-icon(maps);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(maps, hover);
+      }
+    }
+    &.quick-links-support-us a {
+      @include quick-links-icon(gift);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(gift, hover);
+      }
+    }
+  }
+
+  a {
+    color: #878787;
+    margin-left: 15px;
+    cursor: pointer;
+
+    &.active, &.active-trail {
+      span {
+        border-bottom: 2px solid $rit-orange;
+      }
+    }
+    &.active, &.active-trail, &:hover {
+      color: #000;
+    }
+  }
+}
+
+.quick-links {
+  ul {
+    margin-left: 0;
+  }
+
+  li {
+    list-style: none;
+    @include zero();
+  }
+
+  a {
+    padding: 4px 0 4px 30px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    transition-property: color, background;
+    display: block;
+    &:before {
+      display: none;
+    }
+  }
+
+  .contextual-links-wrapper {
+    display: none !important;
+  }
+}
+
+#quick-links--footer {
+  a {
+    text-decoration: none;
+  }
+  li {
+    &.quick-links-about a {
+      @include quick-links-icon(about, footer);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(about, hover);
+      }
+    }
+    &.quick-links-mail a {
+      @include quick-links-icon(email, footer);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(email, hover);
+      }
+    }
+    &.quick-links-staff-directory a {
+      @include quick-links-icon(staff, footer);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(staff, hover);
+      }
+    }
+    &.quick-links-maps a {
+      @include quick-links-icon(maps, footer);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(maps, hover);
+      }
+    }
+    &.quick-links-support-us a {
+      @include quick-links-icon(gift, footer);
+      &:before, &:hover, &.active, &.active-trail {
+        @include quick-links-icon(gift, hover);
+      }
+    }
+  }
+  @include max(511px) {
+    display: none;
+  }
+}

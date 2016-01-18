@@ -1,0 +1,149 @@
+#mobile-menu {
+  width: 275px;
+  @include transform(translate3D(-275px, 0, 0));
+  @include position(fixed, 52px initial initial 0);
+  z-index: 1000;
+  background: $white;
+  max-height: calc(100vh - 52px);
+  overflow-y: scroll;
+
+  body.adminimal-frontend & {
+    max-height: calc(100vh - 99px);
+    top: 97px;
+  }
+
+  ul {
+    @include zero;
+    list-style: none;
+  }
+
+  li {
+    @include zero;
+    list-style: none;
+    border-top: 1px solid $light-gray;
+    position: relative;
+
+    &.active-trail {
+      ul {
+        display: block;
+      }
+      & > a {
+//        color: $white;
+//        background: $rit-orange;
+      }
+      &.has-dropdown > a:after {
+        @include transform(rotate(0deg));
+//        color: $white;
+      }
+    }
+  }
+
+  .menu-name-main-menu li {
+    border-top: 0;
+  }
+
+  a {
+    padding: 19px 10px 16.5px 10px;
+    color: $dark-gray;
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border-bottom: 1px solid $smoke;
+  }
+  li.last a {
+    border-bottom: 0;
+  }
+  li.has-dropdown > a:after {
+    content: "×";
+    font-size: 0.9em;
+    font-weight: bold;
+    font-family: $helvetica;
+    padding-left: 5px;
+    vertical-align: top;
+    color: $medium-gray;
+    display: inline-block;
+    margin: auto 0;
+    @include transform(rotate(-45deg));
+    @include transition(all 200ms ease);
+    position: absolute;
+    right: 10px;
+  }
+
+  li.has-dropdown > a.open:after {
+    @include transform(rotate(0deg));
+  }
+
+  .menu-name-menu-quick-links {
+    li:nth-of-type(2) {
+      display: none;
+    }
+  }
+
+
+  ul ul {
+    display: none;
+
+    li {
+      background: #d2d2d2;
+      @include plr(20px);
+    }
+    a {
+      color: $dark-gray;
+      font-size: 13px;
+      text-transform: capitalize;
+      padding-top: 19px;
+      padding-right: 0;
+      padding-bottom: 17px;
+      font-weight: 600;
+
+      &.active {
+        color: $rit-orange;
+
+//        &:after {
+//          content: "";
+//          @include triangle(12px, $white, right);
+//          @include position(absolute, 0 10px 0 initial);
+//          margin: auto 0;
+//        }
+      }
+    }
+  }
+}
+
+body {
+  &:after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    @include transform(translate3d(-100%, 0, 0));
+  }
+
+  &.mobile-out {
+    overflow-y: hidden;
+
+    #mobile-menu {
+      @include transform(translate3d(0,0,0));
+    }
+
+    &:after {
+      @include transform(translate3d(0,0,0));
+    }
+  }
+}
+
+body:after, #mobile-menu {
+  @include min(($mobile-break + 1)) {
+    display: none;
+  }
+  @include transition(transform 250ms ease-in-out);
+}

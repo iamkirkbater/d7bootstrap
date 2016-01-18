@@ -3,8 +3,22 @@
 @import "bourbon";
 @import "neat";
 @import "base/base";
+@import "global";
 
+// Base
 @import "drupal/admin_menu";
 @import "drupal/drupalisms";
 
-@import "components/rit_bar";
+// Sections
+@import "sections/rit-bar";
+@import "sections/header";
+@import "sections/footer";
+
+// Components
+@import "components/banner";
+@import "components/back-to-top";
+
+// Menus
+@import "components/menus/mobile-menu--light";
+//@import "components/menus/header-menu--light-dropdown";
+//@import "components/menus/header-menu--static-links";

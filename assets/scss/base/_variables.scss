@@ -17,14 +17,18 @@ $base-z-index: 0;
 
 // Colors
 $blue: #477dca;
-$dark-gray: #333;
-$medium-gray: #999;
+$dark-gray: #282828;
+$medium-gray: #666;
 $light-gray: #ddd;
+$rit-orange: #f36e21;
 
 // Font Colors
-$base-background-color: #fff;
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $rit-orange;
+
+// Backgrounds
+$base-background-color: #fff;
+$footer-background-color: $dark-gray;
 
 // Border
 $base-border-color: $light-gray;
